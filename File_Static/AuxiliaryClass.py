@@ -73,6 +73,8 @@ def runSerialPortCommunication():
 
 
 class Statistics:
+    """统计项目行数"""
+
     def __init__(self):
         self.project_dir = 'Frame2.3'
         self.type_list = ['.py', '.c', '.h', '.cpp', '.hpp', ]
@@ -107,7 +109,9 @@ class Statistics:
             self.sum += count
 
 
-class DeleteCache():
+class DeleteCache:
+    """删除缓存文件"""
+
     def __init__(self):
         self.project_dir = '版本'
         self.type_list = ['.', '__pyc', 'debug', 'Relese', 'x64']
@@ -149,4 +153,5 @@ class DeleteCache():
 
 
 if __name__ == '__main__':
-    DeleteCache()
+    # DeleteCache()
+    Statistics()
