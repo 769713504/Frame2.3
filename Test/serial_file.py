@@ -1,4 +1,4 @@
-import torch
+import numpy as np
+cimport numpy as np
 
-x = torch.empty(5, 3)
-print(x)
+
