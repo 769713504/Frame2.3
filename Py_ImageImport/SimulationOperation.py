@@ -64,6 +64,7 @@ class SimulationOperation:
     def startGrabbing(self):
         """开始抓取"""
         self.is_run = True
+        self.is_thread_open=True
         # 创建线程
         self.h_thread_handle = Thread(target=self.__WorkThread)
         self.h_thread_handle.setDaemon(True)
