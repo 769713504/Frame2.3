@@ -1,4 +1,8 @@
 # -- coding: utf-8 --
+import os
+import shutil
+
+
 class DeleteCache:
     """删除缓存文件"""
 

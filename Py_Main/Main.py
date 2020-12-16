@@ -418,7 +418,7 @@ class Main(Ui_MainWindow, QMainWindow):
         dir_path = os.path.join('./File_CSV', year_month)
         csv_path = os.path.join(dir_path, day + '.csv')
         if not os.path.exists(dir_path):
-            os.mkdir(dir_path)
+            os.makedirs(dir_path)
 
         if not os.path.exists(csv_path):
             # 若csv文件不存在创建文件并添加表头

@@ -110,6 +110,7 @@ class SimulationOperation:
         self.id = ''
         self.serial_number = ''
         self.sleep_time = 0.1
+        self.is_thread_open=False
 
     def __WorkThread(self):
         """开启线程"""
