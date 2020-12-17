@@ -859,7 +859,7 @@ class Main(Ui_MainWindow, QMainWindow):
 
         if ret != 0:
             # 弹框抛出异常
-            msg_box = QMessageBox(QMessageBox.Warning, 'error!', '枚举设备失败! ret =' + self.ToHexStr(ret))
+            msg_box = QMessageBox(QMessageBox.Warning, 'error!', '枚举设备失败!')
             msg_box.exec_()
         else:
             self.comboBox_00.clear()
@@ -1077,20 +1077,6 @@ class Main(Ui_MainWindow, QMainWindow):
             end = _all.find(end, start)
             if end >= 0:
                 return _all[start:end].strip()
-
-    @staticmethod
-    def ToHexStr(num):
-        """将返回的错误码转换为十六进制显示"""
-        chaDic = {10: 'a', 11: 'b', 12: 'c', 13: 'd', 14: 'e', 15: 'f'}
-        hexStr = ""
-        if num < 0:
-            num = num + 2 ** 32
-        while num >= 16:
-            digit = num % 16
-            hexStr = chaDic.get(digit, str(digit)) + hexStr
-            num //= 16
-        hexStr = chaDic.get(num, str(num)) + hexStr
-        return hexStr
 
     def hideRadioButton(self, cam_sum):
         """显示与隐藏相机单选按钮: 按相机个数"""
