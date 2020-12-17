@@ -72,7 +72,6 @@ class Main(Ui_MainWindow, QMainWindow):
             return
         self.camera_operation_obj_list[self.now_show_num].showBufferImage()
 
-    #
     def defineVariable(self):
         """定义变量: 在此处实现,无需调用方法"""
 
