@@ -88,7 +88,7 @@ class SystemConfig(Ui_Form, QDialog):
 
     def getSysConfigArgs(self):
         # 读取系统配置参数
-        run_mode = self.config_ini_obj.getint('run', 'mode')
+        run_mode = self.config_ini_obj.getint('main', 'mode')
         cam_sum = self.config_ini_obj.getint('simulate', 'cam_sum')
 
         # 写入弹窗
@@ -102,8 +102,8 @@ class SystemConfig(Ui_Form, QDialog):
             self.config_ini_obj['password']['user'] = self.user_password
         if self.admin_password:
             self.config_ini_obj['password']['admin'] = self.admin_password
-        if self.config_ini_obj['run']['mode'] != str(self.comboBox_0.currentIndex()):
-            self.config_ini_obj['run']['mode'] = str(self.comboBox_0.currentIndex())
+        if self.config_ini_obj['main']['mode'] != str(self.comboBox_0.currentIndex()):
+            self.config_ini_obj['main']['mode'] = str(self.comboBox_0.currentIndex())
             restart = True
         if self.config_ini_obj['simulate']['cam_sum'] != str(self.spinBox_0.value()):
             self.config_ini_obj['simulate']['cam_sum'] = str(self.spinBox_0.value())

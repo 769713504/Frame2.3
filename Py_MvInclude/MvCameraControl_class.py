@@ -1,6 +1,6 @@
 # -- coding: utf-8 --
 from ctypes import *
-from Py_ImageImport.CameraParams_const import *
+from Py_MvInclude.CameraParams_const import *
 
 try:
     MvCamCtrldll = WinDLL("./File_Static/MvCameraControl", winmode=8)

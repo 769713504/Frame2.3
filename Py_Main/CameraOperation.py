@@ -10,9 +10,9 @@ import cv2
 import numpy as np
 from PyQt5.QtGui import QPixmap, QImage
 
-from Py_ImageImport.CameraParams_header import *
-from Py_ImageImport.MvCameraControl_class import *
-from Py_ImageImport.PixelType_header import *
+from Py_MvInclude.CameraParams_header import *
+from Py_MvInclude.MvCameraControl_class import *
+from Py_MvInclude.PixelType_header import *
 
 
 class CameraOperation:
@@ -166,12 +166,6 @@ class CameraOperation:
             print("\t相机%s关闭成功~" % self.cam_num)
             return 0
 
-    def triggerOnce(self, serial_number):
-        """触发一次"""
-        self.serial_number = serial_number
-        if self.camera_obj.MV_CC_SetCommandValue("TriggerSoftware"):
-            print('错误!', '软触发失败!')
-
     def setParameter(self, frameRate, exposureTime, gain):
         """设置参数"""
 
@@ -183,6 +177,18 @@ class CameraOperation:
             print('错误!', '设置获取帧速率失败!', frameRate)
         else:
             print(f'相机{self.cam_num}参数设置成功~')
+
+    def triggerOnce(self, serial_number):
+        """触发一次"""
+        self.serial_number = serial_number
+        if self.camera_obj.MV_CC_SetCommandValue("TriggerSoftware"):
+            print('错误!', '软触发失败!')
+
+    def showBufferImage(self):
+        numArray = self.cache_image_list[self.cam_num]
+        if numArray is None:
+            return
+        self.__ProcessFlow(numArray)
 
     def __DefinedVariable(self):
         # 声明变量
@@ -321,12 +327,6 @@ class CameraOperation:
 
             # 图像处理流程
             self.__ProcessFlow(numArray)
-
-    def showBufferImage(self):
-        numArray = self.cache_image_list[self.cam_num]
-        if numArray is None:
-            return
-        self.__ProcessFlow(numArray)
 
     def __ShowImageToMainLabel(self, img: cv2):
         """向标签中显示彩图"""

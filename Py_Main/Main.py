@@ -7,8 +7,8 @@ import sys
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog, QLineEdit, QMessageBox
 
-from Py_ImageImport.CameraOperation import *
-from Py_ImageImport.SimulationOperation import SimulationOperation
+from Py_Main.CameraOperation import *
+from Py_Main.SimulationOperation import SimulationOperation
 from Py_Main.MainWindow import Ui_MainWindow
 from Py_Main.SensorControl import SensorSerialPortControl
 
@@ -23,9 +23,9 @@ class Main(Ui_MainWindow, QMainWindow):
         self.getSystemParameter()
         # 读取相机配置
         self.getCameraConfigInfo()
-        # 定义变量
-        self.defineVariable()
         # 初始化变量
+        self.defineVariable()
+        # 从方法初始化变量
         self.initializeVariable()
         # 初始化设置
         self.initializeSetting()
@@ -610,7 +610,7 @@ class Main(Ui_MainWindow, QMainWindow):
         else:
             self.stopRun()
             self.is_run = False
-        self.pushButton_05.setText('运行程序')
+            self.pushButton_05.setText('运行程序')
         # 保存CSV
         self.updateCsv()
 

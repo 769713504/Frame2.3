@@ -1,7 +1,7 @@
 from Py_Main.Main import showMainWindow
 
 
-def run():
+def main():
     while True:
         try:
             showMainWindow()
@@ -22,4 +22,4 @@ def run():
 
 
 if __name__ == '__main__':
-    run()
+    main()
